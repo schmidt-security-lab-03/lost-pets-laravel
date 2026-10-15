@@ -31,6 +31,6 @@ class SavePetReportRequest extends FormRequest
 
     public function attributes(): array
     {
-        return ['name' => 'nome', 'species' => 'espécie', 'breed' => 'raça', 'color' => 'cor', 'city' => 'cidade', 'neighborhood' => 'bairro', 'last_seen_at' => 'data da ocorrência', 'description' => 'descrição', 'status' => 'situação'];
+        return ['name' => 'name', 'species' => 'species', 'breed' => 'breed', 'color' => 'color', 'city' => 'city', 'neighborhood' => 'neighborhood', 'last_seen_at' => 'incident date', 'description' => 'description', 'status' => 'status'];
     }
 }

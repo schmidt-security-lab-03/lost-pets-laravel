@@ -1,9 +1,9 @@
-# Componentes de terceiros
+# Third-party components
 
-A estrutura inicial deste aplicativo deriva do projeto laravel/laravel, Copyright Taylor Otwell e contribuidores, disponibilizado sob licença MIT. As dependências mantêm suas próprias licenças.
+The initial application structure is derived from laravel/laravel, Copyright Taylor Otwell and contributors, distributed under the MIT License. Dependencies retain their respective licenses.
 
-Fonte: https://github.com/laravel/laravel/tree/13.x
-Framework e texto de licença: https://github.com/laravel/framework/blob/13.x/LICENSE.md
+Source: https://github.com/laravel/laravel/tree/13.x
+Framework and license text: https://github.com/laravel/framework/blob/13.x/LICENSE.md
 
 MIT License
 

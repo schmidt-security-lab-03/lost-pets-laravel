@@ -52,7 +52,7 @@ class PetReportController extends Controller
     public function store(SavePetReportRequest $request): RedirectResponse
     {
         $pet = PetReport::create($request->validated());
-        return redirect()->route('pets.show', $pet)->with('status', 'Aviso cadastrado.');
+        return redirect()->route('pets.show', $pet)->with('status', 'Report created.');
     }
 
     public function edit(PetReport $pet): View
@@ -63,12 +63,12 @@ class PetReportController extends Controller
     public function update(SavePetReportRequest $request, PetReport $pet): RedirectResponse
     {
         $pet->update($request->validated());
-        return redirect()->route('pets.show', $pet)->with('status', 'Aviso atualizado.');
+        return redirect()->route('pets.show', $pet)->with('status', 'Report updated.');
     }
 
     public function destroy(PetReport $pet): RedirectResponse
     {
         $pet->delete();
-        return redirect()->route('pets.index')->with('status', 'Aviso removido.');
+        return redirect()->route('pets.index')->with('status', 'Report deleted.');
     }
 }

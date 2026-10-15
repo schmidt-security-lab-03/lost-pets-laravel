@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PetReport extends Model
 {
-    public const SPECIES = ['dog' => 'Cachorro', 'cat' => 'Gato', 'other' => 'Outro animal'];
-    public const STATUSES = ['lost' => 'Perdido', 'found' => 'Encontrado', 'reunited' => 'Reencontrado'];
+    public const SPECIES = ['dog' => 'Dog', 'cat' => 'Cat', 'other' => 'Other animal'];
+    public const STATUSES = ['lost' => 'Lost', 'found' => 'Found', 'reunited' => 'Reunited'];
 
     protected $fillable = [
         'name', 'species', 'breed', 'color', 'city', 'neighborhood',
@@ -21,11 +21,11 @@ class PetReport extends Model
 
     public function speciesLabel(): string
     {
-        return self::SPECIES[$this->species] ?? 'Outro animal';
+        return self::SPECIES[$this->species] ?? 'Other animal';
     }
 
     public function statusLabel(): string
     {
-        return self::STATUSES[$this->status] ?? 'Não informado';
+        return self::STATUSES[$this->status] ?? 'Not provided';
     }
 }

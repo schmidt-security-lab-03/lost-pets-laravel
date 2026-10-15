@@ -1,18 +1,18 @@
-# Laços de Volta
+# Paws Back Home
 
-Portal PHP Laravel para consultar e organizar avisos de animais perdidos, encontrados e reencontrados. Interface em português, filtros por cidade, espécie e situação, banco SQLite e exemplos fictícios.
+A PHP Laravel portal for browsing and managing reports of lost, found, and reunited pets. The interface and sample records are in English. The application includes city, species, and status filters and uses SQLite.
 
-## Funcionalidades
+## Features
 
-- Consulta pública com busca, filtros e paginação de 12 avisos.
-- Detalhe do animal com bairro, cidade, data e características.
-- Cadastro, edição, mudança de situação e remoção de avisos.
-- Área de edição protegida por HTTP Basic com credenciais de ambiente.
-- Formulários com validação, escape de saída e proteção CSRF.
+- Public browsing, search, filters, and pagination with 12 reports per page.
+- Pet details with neighborhood, city, incident date, and identifying features.
+- Create, edit, update status, and delete reports.
+- Protect editing with HTTP Basic credentials supplied through the environment.
+- Validate forms, escape output, and protect requests against CSRF.
 
-## Executar localmente
+## Run locally
 
-Requisitos: PHP 8.3 ou superior, Composer e extensões exigidas pelo Laravel, incluindo PDO SQLite e mbstring. A aplicação usa Laravel 13 e dispensa Node para suas telas atuais.
+Requirements: PHP 8.3 or newer, Composer, and the extensions required by Laravel, including PDO SQLite and mbstring. The application uses Laravel 13 and does not require Node for its current pages.
 
 ```sh
 composer install
@@ -23,29 +23,29 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-No PowerShell, substitua `cp .env.example .env` por `Copy-Item .env.example .env`. Abra http://localhost:8000.
+In PowerShell, replace `cp .env.example .env` with `Copy-Item .env.example .env`. Open http://localhost:8000.
 
-Para habilitar o cadastro e a edição, preencha `PORTAL_EDITOR_USER` e `PORTAL_EDITOR_PASSWORD` somente no arquivo local `.env` ou nas variáveis do ambiente. Não há credenciais padrão. Sem os dois valores, as rotas de edição retornam indisponibilidade; a consulta permanece acessível. Use HTTPS fora do desenvolvimento.
+To enable creating and editing reports, set `PORTAL_EDITOR_USER` and `PORTAL_EDITOR_PASSWORD` in your local `.env` file or runtime environment. There are no default credentials. Without both values, editing routes return an unavailable response; browsing remains accessible. Use HTTPS outside local development.
 
-Os exemplos não incluem telefones, endereços particulares, imagens de pessoas ou dados de tutores. Nesta base, o contato com o responsável pelo portal ocorre fora da aplicação. O banco SQLite e `.env` não são versionados.
+The sample records do not contain personal phone numbers, home addresses, photographs of people, or pet owner details. In this initial version, visitors contact the portal administrator outside the application. The SQLite database and `.env` are not tracked by Git.
 
-## Estrutura
+## Project structure
 
-- `app/Models/PetReport.php`: dados e situações dos avisos.
-- `app/Http/Controllers/PetReportController.php`: consultas e operações.
-- `app/Http/Requests`: validação dos formulários.
-- `app/Http/Middleware`: autenticação da edição.
-- `resources/views/pets`: páginas Blade.
-- `database/migrations` e `database/seeders`: estrutura e exemplos fictícios.
+- `app/Models/PetReport.php`: report data and status labels.
+- `app/Http/Controllers/PetReportController.php`: browsing and report operations.
+- `app/Http/Requests`: form validation.
+- `app/Http/Middleware`: editor authentication.
+- `resources/views/pets`: Blade pages.
+- `database/migrations` and `database/seeders`: schema and fictional records.
 
-## Estado desta entrega
+## Delivery status
 
-Código inicial preparado sem execução local, pois PHP e Composer não estão instalados no ambiente de autoria. Nenhum teste foi adicionado ou executado. Após instalar as dependências, versione o `composer.lock` produzido para registrar as versões resolvidas.
+This initial code has not been run locally because PHP and Composer are not installed in the authoring environment. No tests have been added or run. After installing dependencies, commit the generated `composer.lock` to record the resolved versions.
 
-Base de laboratório, sem hospedagem configurada. Antes de disponibilizar em produção, configure HTTPS, `APP_DEBUG=false`, `APP_KEY`, persistência, credenciais de edição e o processo de moderação. Não foram adicionados workflows nem alteradas configurações de segurança da organização.
+This is a laboratory application with no hosting configured. Before production use, configure HTTPS, `APP_DEBUG=false`, `APP_KEY`, persistent storage, editor credentials, and a moderation process. No workflows were added and no organization security settings were changed.
 
-## Origem da estrutura
+## Skeleton attribution
 
-Estrutura inicial derivada de [laravel/laravel, branch 13.x](https://github.com/laravel/laravel/tree/13.x), commit `9ffef3bc4241e3cc333ef267258a404d0d95f194`. Consulte `THIRD_PARTY_NOTICES.md` para atribuição do esqueleto e das dependências.
+The initial application structure is derived from [laravel/laravel, branch 13.x](https://github.com/laravel/laravel/tree/13.x), commit `9ffef3bc4241e3cc333ef267258a404d0d95f194`. See `THIRD_PARTY_NOTICES.md` for skeleton and dependency attribution.
 
-Referência: [Documentação oficial do Laravel](https://laravel.com/docs/13.x).
+Reference: [Official Laravel documentation](https://laravel.com/docs/13.x).

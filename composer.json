@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "schmidt-security-lab/lost-pets-laravel",
     "type": "project",
-    "description": "Portal de consulta e cadastro de animais perdidos, encontrados e reencontrados.",
+    "description": "A Laravel portal for lost, found, and reunited pet reports.",
     "keywords": [
         "laravel",
         "lost-pets",

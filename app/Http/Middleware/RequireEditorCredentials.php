@@ -14,15 +14,15 @@ class RequireEditorCredentials
         $password = (string) config('portal.editor_password');
 
         if ($username === '' || $password === '') {
-            abort(503, 'O responsável precisa habilitar o acesso de edição no ambiente da aplicação.');
+            abort(503, 'The application owner must enable editing through the environment settings.');
         }
 
         $validUser = hash_equals(hash('sha256', $username), hash('sha256', (string) $request->getUser()));
         $validPassword = hash_equals(hash('sha256', $password), hash('sha256', (string) $request->getPassword()));
 
         if (! ($validUser & $validPassword)) {
-            return response('Acesso de edição necessário.', 401)
-                ->header('WWW-Authenticate', 'Basic realm="Portal de animais"');
+            return response('Editor access is required.', 401)
+                ->header('WWW-Authenticate', 'Basic realm="Pet portal"');
         }
 
         return $next($request);
